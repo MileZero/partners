@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 
 public class CandyClientIT extends CandyClientIntegrationTestBase {
 
-    @Inject
+    /*@Inject
     private CandyApi client;
 
     @Ignore
@@ -26,5 +26,5 @@ public class CandyClientIT extends CandyClientIntegrationTestBase {
         Response response = client.get("test2");
         CandyPojo retrieved = (CandyPojo) response.getEntity();
         Assert.assertEquals(retrieved.getName(), candy.getName());
-    }
+    }*/
 }
