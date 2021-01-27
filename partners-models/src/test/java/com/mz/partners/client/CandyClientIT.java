@@ -13,18 +13,15 @@ import javax.ws.rs.core.Response;
 
 public class CandyClientIT extends CandyClientIntegrationTestBase {
 
-    /*@Inject
-    private CandyApi client;
-
     @Ignore
     @Test
     public void testPutAndGetCandy() throws Exception {
-        CandyPojo candy = new CandyPojo();
+        /*CandyPojo candy = new CandyPojo();
         candy.setName("pits");
         client.put("test2", candy);
 
         Response response = client.get("test2");
         CandyPojo retrieved = (CandyPojo) response.getEntity();
-        Assert.assertEquals(retrieved.getName(), candy.getName());
-    }*/
+        Assert.assertEquals(retrieved.getName(), candy.getName());*/
+    }
 }
