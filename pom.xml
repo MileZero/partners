@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mz</groupId>
+        <artifactId>master-parent</artifactId>
+        <version>1.0.29</version>                           <!-- https://github.com/MileZero/master-parent/releases -->
+    </parent>
+
+    <groupId>com.mz.partners</groupId>
+    <artifactId>partners</artifactId>
+    <version>1.5.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>partners</name>
+    <url>http://www.milezero.com</url>
+
+    <modules>
+        <module>partners-models</module>
+        <module>partners-war</module>
+    </modules>
+
+    <scm>
+        <connection>scm:git:https://github.com/MileZero/partners.git</connection>
+        <developerConnection>scm:git:https://github.com/MileZero/partners.git</developerConnection>
+        <url>https://github.com/MileZero/partners.git</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Project modules -->
+
+            <dependency>
+                <groupId>com.mz.partners</groupId>
+                <artifactId>partners-models</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mz.partners</groupId>
+                <artifactId>partners-war</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- MileZero dependencies -->
+
+            <dependency>
+                <groupId>com.mz.core</groupId>
+                <artifactId>jersey-utils</artifactId>
+                <version>${zero.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mz.core</groupId>
+                <artifactId>logback-utils</artifactId>
+                <version>${zero.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mz.core</groupId>
+                <artifactId>service-metrics</artifactId>
+                <version>${zero.version}</version>
+            </dependency>
+
+            <!-- Third party dependencies-->
+
+        </dependencies>
+    </dependencyManagement>
+
+    <properties>
+        <zero.version>7.4.14</zero.version>                          <!-- https://github.com/MileZero/zero/releases -->
+
+        <buildTime>${maven.build.timestamp}</buildTime>
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
+        <buildNumber>-1</buildNumber>
+    </properties>
+</project>

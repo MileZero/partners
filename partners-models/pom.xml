@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mz.partners</groupId>
+        <artifactId>partners</artifactId>
+        <version>1.5.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>partners-models</artifactId>
+    <packaging>jar</packaging>
+
+    <name>partners-models</name>
+    <url>http://www.milezero.com</url>
+
+    <build>
+        <finalName>partners-models</finalName>
+    </build>
+
+    <dependencies>
+
+        <!-- Project modules -->
+
+        <!-- MileZero dependencies -->
+
+        <dependency>
+            <groupId>com.mz.core</groupId>
+            <artifactId>jersey-utils</artifactId>
+        </dependency>
+
+        <!-- Third party dependencies -->
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-jersey2-jaxrs</artifactId>
+        </dependency>
+
+        <!-- Compile dependencies-->
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Test dependencies -->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <properties>
+    </properties>
+</project>

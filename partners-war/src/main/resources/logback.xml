@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <contextName>partners</contextName>
+    <jmxConfigurator />
+
+    <!-- TODO: Remove console
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+ -->
+    <appender name="application" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>var/logs/partners-application.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>var/logs/partners-application.%d{yyyy-MM-dd_HH}.log.gz</fileNamePattern>
+            <maxHistory>750</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{ISO8601} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+    <appender name="COUNTER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>var/logs/partners-counter.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>var/logs/partners-counter.%d{yyyy-MM-dd_HH}.log.gz</FileNamePattern>
+            <maxHistory>750</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%msg%n</pattern>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+    <appender name="PERFORMANCE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>var/logs/partners-performance.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>var/logs/partners-performance.%d{yyyy-MM-dd_HH}.log.gz</FileNamePattern>
+            <maxHistory>750</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%msg%n</pattern>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+    <appender name="REQUEST" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>var/logs/partners-request.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>var/logs/partners-request.%d{yyyy-MM-dd_HH}.log.gz</FileNamePattern>
+            <maxHistory>750</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="REQUEST" level="TRACE" additivity="false">
+        <appender-ref ref="REQUEST"/>
+    </logger>
+
+    <logger name="PERFORMANCE" level="TRACE" additivity="false">
+        <appender-ref ref="PERFORMANCE"/>
+    </logger>
+
+    <logger name="COUNTER" level="TRACE" additivity="false">
+        <appender-ref ref="COUNTER"/>
+    </logger>
+
+    <!-- PROD / "other" config -->
+    <if condition='isDefined("stage") &amp;&amp; property("stage").equals("prod")'>
+        <then>
+            <logger name="com.mz.partners" level="INFO" additivity="false">
+                <appender-ref ref="application" />
+            </logger>
+
+            <root level="ERROR" >
+                <appender-ref ref="application" />
+            </root>
+        </then>
+        <else>
+            <logger name="com.mz.partners" level="TRACE" additivity="false">
+                <appender-ref ref="application" />
+            </logger>
+
+            <root level="DEBUG">
+                <appender-ref ref="application" />
+            </root>
+        </else>
+    </if>
+</configuration>
