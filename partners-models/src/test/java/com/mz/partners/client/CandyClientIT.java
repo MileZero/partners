@@ -4,8 +4,6 @@
 
 package com.mz.partners.client;
 
-import com.mz.partners.api.CandyApi;
-import com.mz.partners.models.model.CandyPojo;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
