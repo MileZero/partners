@@ -10,7 +10,7 @@
 
     <groupId>com.mz.partners</groupId>
     <artifactId>partners</artifactId>
-    <version>1.5.1</version>
+    <version>1.5.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>partners</name>
@@ -25,7 +25,7 @@
         <connection>scm:git:https://github.com/MileZero/partners.git</connection>
         <developerConnection>scm:git:https://github.com/MileZero/partners.git</developerConnection>
         <url>https://github.com/MileZero/partners.git</url>
-        <tag>partners-1.5.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencyManagement>
